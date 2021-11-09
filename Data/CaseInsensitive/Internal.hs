@@ -32,7 +32,7 @@ module Data.CaseInsensitive.Internal ( CI
 
 -- from base:
 import Control.Applicative (Applicative)
-import GHC.Generic
+import GHC.Generics
 import Data.Bool      ( (||) )
 import Data.Char      ( Char, toLower )
 import Data.Eq        ( Eq, (==) )
