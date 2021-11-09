@@ -1,4 +1,4 @@
-{-# LANGUAGE CPP, DeriveDataTypeable #-}
+{-# LANGUAGE CPP, DeriveDataTypeable, DeriveGeneric #-}
 
 #if __GLASGOW_HASKELL__ >= 704
 {-# LANGUAGE Unsafe #-}
@@ -32,6 +32,7 @@ module Data.CaseInsensitive.Internal ( CI
 
 -- from base:
 import Control.Applicative (Applicative)
+import GHC.Generic
 import Data.Bool      ( (||) )
 import Data.Char      ( Char, toLower )
 import Data.Eq        ( Eq, (==) )
@@ -90,7 +91,7 @@ data CI s = CI { original   :: !s -- ^ Retrieve the original string-like value.
                , foldedCase :: !s -- ^ Retrieve the case folded string-like value.
                                   --   (Also see 'foldCase').
                }
-          deriving (Data, Typeable)
+          deriving (Data, Typeable, Generic)
 
 -- | Make the given string-like value case insensitive.
 mk :: FoldCase s => s -> CI s
